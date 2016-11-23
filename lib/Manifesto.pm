@@ -4,10 +4,13 @@ class Manifesto {
     has Supplier $!supplier;
     has Promise  %!promises;
 
+    has Supplier $!empty;
+
     
     
     submethod BUILD() {
         $!supplier = Supplier.new;
+        $!empty = Supplier.new;
     }
 
     method Supply() returns Supply {
@@ -23,11 +26,18 @@ class Manifesto {
                 $p;
             }).then( {
                 %!promises{$which}:delete;
+                if %!promises.values.elems == 0 {
+                    $!empty.emit: True;
+                }
             });
             %!promises{$which} = $promise;
             $rc = True;
         }
         $rc;
+    }
+
+    method empty() {
+        $!empty.Supply;
     }
 
     method promises() {
