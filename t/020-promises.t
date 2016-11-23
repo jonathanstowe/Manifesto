@@ -26,11 +26,14 @@ my $promise = Promise.new;
 
 ok $manifesto.add-promise($promise), "add the Promise";
 
+is $manifesto.promises.elems, 1, "got the promise";
+
 $promise.keep: "what we expected";
 
 await Promise.anyof($guard, Promise.in(1));
 
 is $result, "what we expected", "the tap got fired";
+is $manifesto.promises.elems, 0, "the promise went away";
 
 done-testing;
 # vim: expandtab shiftwidth=4 ft=perl6

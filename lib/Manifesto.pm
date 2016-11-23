@@ -5,6 +5,7 @@ class Manifesto {
     has Promise  %!promises;
 
     
+    
     submethod BUILD() {
         $!supplier = Supplier.new;
     }
@@ -27,6 +28,10 @@ class Manifesto {
             $rc = True;
         }
         $rc;
+    }
+
+    method promises() {
+        %!promises.values;
     }
 }
 # vim: expandtab shiftwidth=4 ft=perl6
