@@ -1,0 +1,22 @@
+#!/usr/bin/env perl6
+
+use v6.c;
+
+use Manifesto;
+
+my $manifesto = Manifesto.new;
+
+for (^10).pick(*).map({ start { sleep $_; $_ } }) -> $p {
+    $manifesto.add-promise($p);
+}
+
+react {
+    whenever $manifesto -> $v {
+        say $v;
+    }
+    whenever $manifesto.empty {
+        done;
+    }
+}
+
+# vim: expandtab shiftwidth=4 ft=perl6
