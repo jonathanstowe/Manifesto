@@ -22,6 +22,13 @@ lives-ok {
     });
 }, "tap the supply";
 
+my Bool $empty = False;
+
+lives-ok {
+    $manifesto.empty.tap({ $empty = True });
+}, "tap the empty supply";
+
+
 my $promise = Promise.new;
 
 ok $manifesto.add-promise($promise), "add the Promise";
@@ -34,6 +41,7 @@ await Promise.anyof($guard, Promise.in(1));
 
 is $result, "what we expected", "the tap got fired";
 is $manifesto.promises.elems, 0, "the promise went away";
+ok $empty, "and the empty supply got fired";
 
 done-testing;
 # vim: expandtab shiftwidth=4 ft=perl6
