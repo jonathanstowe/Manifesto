@@ -5,12 +5,14 @@ class Manifesto {
     has Promise  %!promises;
 
     has Supplier $!empty;
+    has Supplier $!exception;
 
     
     
     submethod BUILD() {
-        $!supplier = Supplier.new;
-        $!empty = Supplier.new;
+        $!supplier  = Supplier.new;
+        $!empty     = Supplier.new;
+        $!exception = Supplier.new;
     }
 
     method Supply() returns Supply {
@@ -22,6 +24,11 @@ class Manifesto {
         my $which = $promise.WHICH;
         if  $promise.status ~~ Planned {
             $promise.then(sub ($p ) {
+                CATCH {
+                    default {
+                        $!exception.emit: $_;
+                    }
+                }
                 $!supplier.emit: $p.result;
                 $p;
             }).then( {
@@ -38,6 +45,10 @@ class Manifesto {
 
     method empty() {
         $!empty.Supply;
+    }
+
+    method exception() {
+        $!exception.Supply;
     }
 
     method promises() {
