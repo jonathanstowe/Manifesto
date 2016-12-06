@@ -16,14 +16,19 @@ for (^10).pick(*).map({ start { sleep $_; $_ } }) -> $p {
     $manifesto.add-promise($p);
 }
 
+my $channel = Channel.new;
+
 react {
     whenever $manifesto -> $v {
-        say $v;
+        $channel.send($v);
     }
     whenever $manifesto.empty {
+        $channel.done;
         done;
     }
 }
+
+say $channel.list;
 
 ```
 

@@ -10,13 +10,18 @@ for (^10).pick(*).map({ start { sleep $_; $_ } }) -> $p {
     $manifesto.add-promise($p);
 }
 
+my $channel = Channel.new;
+
 react {
     whenever $manifesto -> $v {
-        say $v;
+        $channel.send: $v;
     }
     whenever $manifesto.empty {
+        $channel.close;
         done;
     }
 }
+
+say $channel.list;
 
 # vim: expandtab shiftwidth=4 ft=perl6
