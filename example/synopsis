@@ -6,7 +6,7 @@ use Manifesto;
 
 my $manifesto = Manifesto.new;
 
-for (^10).pick(*).map({ start { sleep $_; $_ } }) -> $p {
+for (^10).pick(*).map( -> $i { Promise.in($i).then({ $i })}) -> $p {
     $manifesto.add-promise($p);
 }
 

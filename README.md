@@ -7,12 +7,11 @@ Make a supply of the results of Promises
 A different version of the old 'sleep sort'
 
 ```perl6
-
 use Manifesto;
 
 my $manifesto = Manifesto.new;
 
-for (^10).pick(*).map({ start { sleep $_; $_ } }) -> $p {
+for (^10).pick(*).map( -> $i { Promise.in($i).then({ $i })}) -> $p {
     $manifesto.add-promise($p);
 }
 
@@ -20,10 +19,10 @@ my $channel = Channel.new;
 
 react {
     whenever $manifesto -> $v {
-        $channel.send($v);
+        $channel.send: $v;
     }
     whenever $manifesto.empty {
-        $channel.done;
+        $channel.close;
         done;
     }
 }
