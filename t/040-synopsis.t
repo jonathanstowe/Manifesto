@@ -8,7 +8,7 @@ use Manifesto;
 
 my $manifesto = Manifesto.new;
 
-for (^10).pick(*).map( -> $i { Promise.in($i).then({ $i })}) -> $p {
+for (^10).pick(*).map( -> $i { Promise.in($i + 0.5).then({ $i })}) -> $p {
     $manifesto.add-promise($p);
 }
 
