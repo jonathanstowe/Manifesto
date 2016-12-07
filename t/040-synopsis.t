@@ -4,6 +4,8 @@ use v6.c;
 
 use Test;
 
+plan 1;
+
 use Manifesto;
 
 my $manifesto = Manifesto.new;
