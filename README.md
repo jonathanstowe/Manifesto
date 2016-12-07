@@ -2,6 +2,8 @@
 
 Make a supply of the results of Promises 
 
+[![Build Status](https://travis-ci.org/jonathanstowe/Manifesto.svg?branch=master)](https://travis-ci.org/jonathanstowe/Manifesto)
+
 ## Synopsis
 
 A different version of the old 'sleep sort'
