@@ -112,7 +112,7 @@ class Manifesto {
         $!supplier.Supply;
     }
 
-    method add-promise(Promise $promise) returns Bool {
+    method add-promise(Promise() $promise) returns Bool {
         my Bool $rc;
         my $which = $promise.WHICH;
         if  $promise.status ~~ Planned {
