@@ -6,7 +6,7 @@
     "source": "https://github.com/jonathanstowe/Manifesto.git",
     "bugtracker": "https://github.com/jonathanstowe/Manifesto/issues"
   },
-  "perl": "6.c",
+  "perl": "6.*",
   "resources": [
     
   ],
