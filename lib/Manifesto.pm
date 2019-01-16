@@ -111,11 +111,11 @@ class Manifesto {
         $!promises-lock = Lock.new;
     }
 
-    method Supply() returns Supply {
+    method Supply( --> Supply ) {
         $!supplier.Supply;
     }
 
-    method add-promise(Promise() $promise) returns Bool {
+    method add-promise(Promise() $promise --> Bool ) {
         my Bool $rc;
         my $which = $promise.WHICH;
         if  $promise.status ~~ Planned {
@@ -143,11 +143,11 @@ class Manifesto {
         $rc;
     }
 
-    method empty() {
+    method empty( --> Supply ) {
         $!empty.Supply;
     }
 
-    method exception() {
+    method exception( --> Supply ) {
         $!exception.Supply;
     }
 
