@@ -63,7 +63,7 @@ them via [GitHub](https://github.com/jonathanstowe/Manifesto/issues)
 
 ## Copyright and Licence
 
-© Jonathan Stowe 2016, 2017
+© Jonathan Stowe 2016, 2017, 2018, 2019
 
 This is free software, the terms are described in the [LICENCE](LICENCE) file
 in this repository.
