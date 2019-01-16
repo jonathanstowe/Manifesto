@@ -104,7 +104,7 @@ class Manifesto {
 
 
 
-    submethod BUILD() {
+    submethod TWEAK() {
         $!supplier  = Supplier.new;
         $!empty     = Supplier.new;
         $!exception = Supplier.new;
