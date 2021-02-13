@@ -2,13 +2,13 @@
 
 Make a supply of the results of Promises 
 
-[![Build Status](https://travis-ci.org/jonathanstowe/Manifesto.svg?branch=master)](https://travis-ci.org/jonathanstowe/Manifesto)
+![Build Status](https://github.com/jonathanstowe/Manifesto/workflows/CI/badge.svg)
 
 ## Synopsis
 
 A different version of the old 'sleep sort'
 
-```perl6
+```raku
 use Manifesto;
 
 my $manifesto = Manifesto.new;
@@ -44,8 +44,7 @@ or otherwise tapped.
 
 ## Installation
 
-Assuming you have a working installation of Rakudo perl 6 installed
-with *zef* you should be able to do either:
+Assuming you have a working installation of Rakudo installed with *zef* you should be able to do either:
 
     zef install Manifesto
 
@@ -63,7 +62,6 @@ them via [GitHub](https://github.com/jonathanstowe/Manifesto/issues)
 
 ## Copyright and Licence
 
-© Jonathan Stowe 2016, 2017, 2018, 2019
+© Jonathan Stowe 2016 - 2021
 
-This is free software, the terms are described in the [LICENCE](LICENCE) file
-in this repository.
+This is free software, the terms are described in the [LICENCE](LICENCE) file in this repository.
