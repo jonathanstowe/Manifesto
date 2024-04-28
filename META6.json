@@ -14,11 +14,11 @@
   "api": "1.0",
   "meta-version": "1",
   "name": "Manifesto",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "depends": [
   ],
   "provides": {
-    "Manifesto": "lib/Manifesto.pm"
+    "Manifesto": "lib/Manifesto.rakumod"
   },
   "build-depends": [
   ],

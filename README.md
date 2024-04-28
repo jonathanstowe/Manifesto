@@ -2,7 +2,7 @@
 
 Make a supply of the results of Promises 
 
-![Build Status](https://github.com/jonathanstowe/Manifesto/workflows/CI/badge.svg)
+[![CI](https://github.com/jonathanstowe/Manifesto/actions/workflows/main.yml/badge.svg)](https://github.com/jonathanstowe/Manifesto/actions/workflows/main.yml)
 
 ## Synopsis
 
